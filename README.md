@@ -67,24 +67,24 @@ src/main/resources/static: Contiene archivos estáticos como CSS y JavaScript.
 Vistas Principales
 
 El sistema incluye una barra de navegación que proporciona enlaces a las diferentes secciones de la aplicación:
-_Home
-_Clientes
-_Productos
-_Ventas
-_Detalles de Ventas
+- **Home** 
+- **Clientes** 
+- **Productos** 
+- **Ventas** 
+- **Detalles de Ventas** 
 
-**Vistas de CRUD**
+**Vistas de CRUD**:
 Cada entidad (Clientes, Productos, Ventas, Detalles de Ventas) tiene su propia vista de gestión, que incluye:
 
-_Listado de entidades
-_Formulario de creación y edición
-_Botón de eliminación con confirmación
+- **Listado de entidades** 
+- **Formulario de creación y edición** 
+- **Botón de eliminación con confirmación** 
 
-##Desarrollador
+## Desarrollador
 Este proyecto fue desarrollado por Jose Fernando Davila Bravo.
 
-Contribuciones
+### Contribuciones
 Las contribuciones son bienvenidas. Si deseas contribuir, por favor realiza un fork del repositorio y crea una solicitud de pull con tus cambios.
 
-Contacto
+### Contacto
 Si tienes alguna pregunta o sugerencia, no dudes en contactar a Jose Fernando Davila Bravo a través de su correo electrónico: jose.davila.b@tecsup.edu.pe
