@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Detalle de Venta</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" th:href="@{/}">CRUD SPRING BOOT</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/clientes/}">Clientes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/productos/}">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/ventas/}">Ventas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/detalleVentas/}">Detalle Ventas</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="py-4">
+        <div class="container">
+            <h1 class="mb-4">Editar Detalle de Venta</h1>
+            <form th:action="@{'/detalleVentas/actualizar/' + ${detalleVenta.idDetalle}}" th:object="${detalleVenta}" method="post">
+                <div class="form-group">
+                    <label for="cantidad">Cantidad:</label>
+                    <input type="number" class="form-control" id="cantidad" th:field="*{cantidad}" required />
+                </div>
+                <div class="form-group">
+                    <label for="precio">Precio:</label>
+                    <input type="number" class="form-control" id="precio" th:field="*{precio}" step="0.01" required />
+                </div>
+                <div class="form-group">
+                    <label for="subTotal">Sub Total:</label>
+                    <input type="number" class="form-control" id="subTotal" th:field="*{subTotal}" step="0.01" required />
+                </div>
+                <div class="form-group">
+                    <label for="venta">Venta:</label>
+                    <select class="form-control" id="venta" th:field="*{venta}">
+                        <option th:each="venta : ${ventas}" 
+                                th:value="${venta.idVenta}"
+                                th:selected="${venta.idVenta != null and detalleVenta.venta != null and venta.idVenta == detalleVenta.venta.idVenta}"
+                                th:text="${venta.serie + ' - ' + venta.numero}">
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="producto">Producto:</label>
+                    <select class="form-control" id="producto" th:field="*{producto}">
+                        <option th:each="producto : ${productos}" 
+                                th:value="${producto.idProducto}"
+                                th:selected="${producto.idProducto != null and detalleVenta.producto != null and producto.idProducto.equals(detalleVenta.producto.idProducto)}"
+                                th:text="${producto.descripcion}">
+                        </option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Actualizar</button>
+            </form>
+        </div>
+    </main>
+    <footer class="bg-dark text-white py-3">
+        <div class="container text-center">
+            <p>© 2024 Jose Davila</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
